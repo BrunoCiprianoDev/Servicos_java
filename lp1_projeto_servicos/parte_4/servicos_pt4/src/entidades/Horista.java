@@ -10,8 +10,10 @@ public class Horista extends Funcionario {
 		this.totalHorasTrabalhadas = totalHorasTrabalhadas;
 	}
 	
-	public Horista(Funcionario funcionario) {
-		super(funcionario);
+	public Horista(Horista horista) {
+		super(horista);
+		this.salarioHora = horista.salarioHora;
+		this.totalHorasTrabalhadas = horista.totalHorasTrabalhadas;
 	}
 
 	public double getSalarioHora() {
@@ -34,6 +36,5 @@ public class Horista extends Funcionario {
 	public double calcularSalario() {
 		return this.salarioHora * this.totalHorasTrabalhadas;
 	}
-
 
 }

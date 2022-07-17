@@ -26,5 +26,6 @@ public class Assalariado extends Funcionario {
 	public double calcularSalario() {
 		return this.salario;
 	}
+	
 
 }

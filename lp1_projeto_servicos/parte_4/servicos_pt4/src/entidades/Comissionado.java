@@ -13,6 +13,7 @@ public class Comissionado extends Funcionario {
 	public Comissionado(Comissionado comissionado) {
 		super(comissionado);
 		this.taxaDeComissao = comissionado.getTaxaDeComissao();
+		this.totalEmServicos = comissionado.getTotalEmServicos();
 	}
 
 	public double getTaxaDeComissao() {
@@ -30,9 +31,10 @@ public class Comissionado extends Funcionario {
 	public void setTotalEmServicos(double totalEmServicos) {
 		this.totalEmServicos = totalEmServicos;
 	}
+	
 	@Override
 	public double calcularSalario() {
 		return this.taxaDeComissao * this.totalEmServicos;
 	}
-
+	
 }

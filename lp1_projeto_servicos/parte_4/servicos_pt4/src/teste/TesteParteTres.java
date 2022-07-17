@@ -55,8 +55,7 @@ public class TesteParteTres {
 		System.out.println(historico.removerContrato(contratoUm.getCodigoPrestacaoServico()));
 		System.out.println(historico.removerContrato(contratoUm.getCodigoPrestacaoServico().concat("112")));
 		System.out.println(historico.verificarExistenciaDeUmContrato(contratoTres.getCodigoPrestacaoServico()));
-		
-		
-		System.out.println(IdentificadorFuncionario.getIdentificacao(contratoDois.getFuncionario()));
+			
+		System.out.println(contratoQuatro.getFuncionario());
 	}
 }

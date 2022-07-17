@@ -48,7 +48,7 @@ public class Teste {
 		
 		System.out.println(historico.toString());
 		
-		System.out.println(IdentificadorFuncionario.getIdentificacao(funcionarioQuatro));
+		System.out.println(IdentificadorFuncionario.getIdentificacao(contratoOnze));
 		
 		//System.out.println(historico.informacoesDeUmDeterminadoContrato("2022-2"));
 

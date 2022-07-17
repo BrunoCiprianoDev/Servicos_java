@@ -68,7 +68,7 @@ public class Contrato {
 	}
 
 	public Funcionario getFuncionario() {
-		return this.funcionario;
+		return (Funcionario)this.funcionario;
 	}
 	
 	public void setFuncionario(Funcionario funcionario) {
@@ -82,8 +82,7 @@ public class Contrato {
 				"\n Ano de inicio do contrato: "+this.anoInicioContrato+
 				"\n"+cliente.toString()+
 				"\n"+funcionario.toString()+
-				" ("+IdentificadorFuncionario.getIdentificacao(this.funcionario)+
-				")\n"+servico.toString();
+				"\n"+servico.toString();
 	}
 
 }
