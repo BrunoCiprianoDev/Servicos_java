@@ -1,4 +1,4 @@
-package entidades;
+package pessoas;
 
 public abstract class Funcionario extends Pessoa {
 	private static int parametroCodigoFuncionario = 0;
@@ -9,6 +9,11 @@ public abstract class Funcionario extends Pessoa {
 		this.codigoFuncionario = this.gerarCodigo();
 	}
 	
+	public Funcionario(String codigoFuncionario, String nome, String sobrenome, String email, boolean sexo) {
+		super(nome, sobrenome, email, sexo);
+		this.codigoFuncionario = codigoFuncionario;
+	}
+	
 	public Funcionario(Funcionario funcionario) {
 		super(funcionario);
 		this.codigoFuncionario = funcionario.codigoFuncionario;
@@ -17,8 +22,10 @@ public abstract class Funcionario extends Pessoa {
 	public String getCodigoFuncionario() {
 		return this.codigoFuncionario;
 	}
-	
+		
 	public abstract double calcularSalario();
+	
+	public abstract Funcionario getFuncionario();
 	
 	@Override
 	public String toString() {

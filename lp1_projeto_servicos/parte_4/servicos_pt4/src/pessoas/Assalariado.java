@@ -1,4 +1,4 @@
-package entidades;
+package pessoas;
 
 public class Assalariado extends Funcionario {
 	
@@ -6,6 +6,11 @@ public class Assalariado extends Funcionario {
 
 	public Assalariado(String nome, String sobrenome, String email, boolean sexo, double salario) {
 		super(nome, sobrenome, email, sexo);
+		this.salario = salario;
+	}
+	
+	public Assalariado(String codigoFuncionario, String nome, String sobrenome, String email, boolean sexo, double salario) {
+		super(codigoFuncionario, nome, sobrenome, email, sexo);
 		this.salario = salario;
 	}
 	
@@ -25,6 +30,18 @@ public class Assalariado extends Funcionario {
 	@Override
 	public double calcularSalario() {
 		return this.salario;
+	}
+
+	@Override
+	public Assalariado getFuncionario() {
+			Assalariado assalariado = new Assalariado(
+					super.getCodigoFuncionario(),
+					super.getNome(), 
+					super.getSobrenome(), 
+					super.getEmail(), 
+					super.getSexo(),
+					this.salario);	
+			return assalariado;
 	}
 	
 

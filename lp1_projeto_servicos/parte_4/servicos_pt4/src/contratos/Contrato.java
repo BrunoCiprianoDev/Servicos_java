@@ -1,6 +1,8 @@
-package entidades;
+package contratos;
 
 import java.time.LocalDate;
+import pessoas.*;
+import services.*;
 
 public class Contrato {
 	
@@ -68,7 +70,7 @@ public class Contrato {
 	}
 
 	public Funcionario getFuncionario() {
-		return (Funcionario)this.funcionario;
+		return this.funcionario.getFuncionario();
 	}
 	
 	public void setFuncionario(Funcionario funcionario) {
@@ -77,7 +79,7 @@ public class Contrato {
 
 	@Override
 	public String toString() {
-		return "\n Código de prestação serviço: "+this.codigoPrestacaoServico+
+		return  "\n Código de prestação serviço: "+this.codigoPrestacaoServico+
 				"\n Mês de inicio do contrato: "+this.mesInicioContrato+
 				"\n Ano de inicio do contrato: "+this.anoInicioContrato+
 				"\n"+cliente.toString()+

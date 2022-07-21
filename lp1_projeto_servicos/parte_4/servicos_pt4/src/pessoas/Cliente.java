@@ -1,4 +1,4 @@
-package entidades;
+package pessoas;
 
 public class Cliente extends Pessoa {
 	private static int parametroCodigoCliente = 0;

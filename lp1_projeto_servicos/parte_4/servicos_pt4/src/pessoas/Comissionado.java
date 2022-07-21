@@ -1,4 +1,4 @@
-package entidades;
+package pessoas;
 
 public class Comissionado extends Funcionario {
 	private double taxaDeComissao;
@@ -6,6 +6,12 @@ public class Comissionado extends Funcionario {
 	
 	public Comissionado(String nome, String sobrenome, String email, boolean sexo, double taxaDeComissao, double totalEmServicos) {
 		super(nome, sobrenome, email, sexo);
+		this.taxaDeComissao = taxaDeComissao;
+		this.totalEmServicos = totalEmServicos;
+	}
+	
+	public Comissionado(String codigoFuncionario, String nome, String sobrenome, String email, boolean sexo, double taxaDeComissao, double totalEmServicos) {
+		super(codigoFuncionario, nome, sobrenome, email, sexo);
 		this.taxaDeComissao = taxaDeComissao;
 		this.totalEmServicos = totalEmServicos;
 	}
@@ -35,6 +41,19 @@ public class Comissionado extends Funcionario {
 	@Override
 	public double calcularSalario() {
 		return this.taxaDeComissao * this.totalEmServicos;
+	}
+
+	@Override
+	public Comissionado getFuncionario() {
+		Comissionado comissionado = new Comissionado(
+				super.getCodigoFuncionario(),
+				super.getNome(), 
+				super.getSobrenome(), 
+				super.getEmail(), 
+				super.getSexo(),
+				this.getTaxaDeComissao(),
+				this.getTotalEmServicos());		
+		return comissionado;
 	}
 	
 }

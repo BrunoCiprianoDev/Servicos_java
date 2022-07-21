@@ -1,6 +1,10 @@
 package teste;
 
-import entidades.*;
+import services.Servico;
+import pessoas.*;
+import contratos.Contrato;
+import historicos.Historico;
+import identificadores.IdentificadorFuncionario;
 
 public class Teste {
 	public static void main(String[] args) {

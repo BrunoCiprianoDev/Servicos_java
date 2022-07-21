@@ -1,6 +1,8 @@
-package entidades;
+package historicos;
 
 import java.util.ArrayList;
+
+import contratos.*;
 
 public class Historico {
 
