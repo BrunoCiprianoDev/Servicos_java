@@ -6,7 +6,8 @@ import pessoas.Comissionado;
 
 
 public class TesteTratamento {
-	public static void main(String...args) {
+	public static void main(String...args) {	
+		//Teste do método 'tratarNome()':
 		Assalariado funcionarioUm = new Assalariado("Fulano", "de Tal", "ciclano911@empresa.com.br", true, 1100);
 		Comissionado funcionarioDois = new Comissionado("Fulana", "Periodico", "er981@empresa.com.br", false, 0.05, 3000);
 		

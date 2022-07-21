@@ -6,8 +6,7 @@ import pessoas.Horista;
 
 public class TesteCalculoSalarioFuncionario {
 	public static void main(String[] args) {
-		
-		//Teste focado no método calcular salário dos funcionários:
+		//Teste para o método 'calcularSalario()':
 		Assalariado funcionarioUm = new Assalariado("Fulano", "de Tal", "ciclano911@empresa.com.br", true, 1100);
 		Comissionado funcionarioDois = new Comissionado("Érbio", "Periodico", "er981@empresa.com.br", true, 0.05, 3000);
 		Horista funcionarioTres = new Horista("TypewriterWoman", "Mouse", "benzenoo981@empresa.com.br", true, 15, 80);

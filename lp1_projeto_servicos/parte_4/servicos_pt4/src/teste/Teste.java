@@ -4,7 +4,6 @@ import services.Servico;
 import pessoas.*;
 import contratos.Contrato;
 import historicos.Historico;
-import identificadores.IdentificadorFuncionario;
 
 public class Teste {
 	public static void main(String[] args) {
@@ -51,11 +50,7 @@ public class Teste {
 		historico.setContrato(contratoOnze);
 		
 		System.out.println(historico.toString());
-		
-		System.out.println(IdentificadorFuncionario.getIdentificacao(contratoOnze));
-		
-		//System.out.println(historico.informacoesDeUmDeterminadoContrato("2022-2"));
-
+	
 	
 	}
 

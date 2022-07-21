@@ -16,7 +16,7 @@ public abstract class Funcionario extends Pessoa {
 	
 	public Funcionario(Funcionario funcionario) {
 		super(funcionario);
-		this.codigoFuncionario = funcionario.codigoFuncionario;
+		this.codigoFuncionario = funcionario.getCodigoFuncionario();
 	}
 	
 	public String getCodigoFuncionario() {
