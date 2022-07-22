@@ -5,6 +5,11 @@ public class Historico {
 	private Contrato[] listaDeContratos;
 	private int contadorDeContratos = 0;
 	
+	/* Correção da parte 2: 
+	 * Erro: A inicialização do array listaDeContratos não foi feita no contrutor
+	 * Obs: correção realizada na linha 14;
+	 * */
+	
 	public Historico(Contrato contrato, int tamanho) {
 		this.listaDeContratos = new Contrato[tamanho];
 		this.listaDeContratos[contadorDeContratos++] = contrato;

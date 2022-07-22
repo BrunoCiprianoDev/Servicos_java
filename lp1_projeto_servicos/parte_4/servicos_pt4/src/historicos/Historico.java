@@ -13,6 +13,14 @@ public class Historico {
 		this.listaDeContratos.add(contrato);
 	}
 	
+	public ArrayList<Contrato> getListaDeContratos() {
+		return new ArrayList<Contrato>(this.listaDeContratos);
+	}
+	
+	public void setListaDeContratos(ArrayList<Contrato> listaDeContratosExterna) {
+		for(Contrato contrato : listaDeContratosExterna) {this.listaDeContratos.add(contrato);}
+	}
+	
 	public double calcularFaturamentoTotalPrevisto() {
 		if(this.listaDeContratos.isEmpty()) {return 0;}
 		double totalOrcamentos = 0;
@@ -31,12 +39,9 @@ public class Historico {
 		 return totalEfetivamentePago;
 	}
 	
-	public void setContrato(Contrato contrato) {
-		listaDeContratos.add(contrato);
-	}
 	
-	public ArrayList<Contrato> getContratos() {
-		return new ArrayList<Contrato>(this.listaDeContratos);
+	public void adicionarContrato(Contrato contrato) {
+		this.listaDeContratos.add(contrato);
 	}
 	
 	public boolean removerContrato(String codigoPrestacaoServico) {

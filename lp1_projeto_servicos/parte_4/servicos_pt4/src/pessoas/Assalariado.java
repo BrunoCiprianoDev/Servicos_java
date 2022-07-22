@@ -40,7 +40,7 @@ public class Assalariado extends Funcionario {
 					super.getSobrenome(), 
 					super.getEmail(), 
 					super.getSexo(),
-					this.salario);	
+					this.getSalario());	
 			return assalariado;
 	}
 	

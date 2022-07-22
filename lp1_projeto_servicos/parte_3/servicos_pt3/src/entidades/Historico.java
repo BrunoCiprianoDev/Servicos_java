@@ -9,30 +9,16 @@ public class Historico {
 		this.listaDeContratos.add(contrato);
 	}
 	
-	public double calcularFaturamentoTotalPrevisto() {
-		if(this.listaDeContratos.isEmpty()) {return 0;}
-		double totalOrcamentos = 0;
-		for(Contrato contrato : this.listaDeContratos){
-			totalOrcamentos += contrato.getServico().calcularValorOrcamento();
-		}
-		return totalOrcamentos;
-	}
-	
-	public double calcularTotalEfetivamentePago() {
-		if(this.listaDeContratos.isEmpty()) {return 0;}
-		double totalEfetivamentePago = 0;
-		for(Contrato contrato : this.listaDeContratos){
-			totalEfetivamentePago += contrato.getServico().calcularValorEfetivamentePago();
-		}
-		return totalEfetivamentePago;
-	}
-	
-	public void setContrato(Contrato contrato) {
-		this.listaDeContratos.add(contrato);
-	}
-	
-	public ArrayList<Contrato> getContratos() {
+	public ArrayList<Contrato> getListaDeContratos() {
 		return new ArrayList<Contrato>(this.listaDeContratos);
+	}
+	
+	public void setListaDeContratos(ArrayList<Contrato> listaDeContratosExterna) {
+		for(Contrato contrato : listaDeContratosExterna) {this.listaDeContratos.add(contrato);}
+	}
+		
+	public void adicionarContrato(Contrato contrato) {
+		this.listaDeContratos.add(contrato);
 	}
 	
 	public boolean removerContrato(String codigoPrestacaoServico) {
@@ -54,6 +40,24 @@ public class Historico {
 			}
 		}
 		return false;
+	}
+		
+	public double calcularFaturamentoTotalPrevisto() {
+		if(this.listaDeContratos.isEmpty()) {return 0;}
+		double totalOrcamentos = 0;
+		for(Contrato contrato : this.listaDeContratos){
+			totalOrcamentos += contrato.getServico().calcularValorOrcamento();
+		}
+		return totalOrcamentos;
+	}
+	
+	public double calcularTotalEfetivamentePago() {
+		if(this.listaDeContratos.isEmpty()) {return 0;}
+		double totalEfetivamentePago = 0;
+		for(Contrato contrato : this.listaDeContratos){
+			totalEfetivamentePago += contrato.getServico().calcularValorEfetivamentePago();
+		}
+		return totalEfetivamentePago;
 	}
 	
 	public String informacoesDeUmContrato(String codigoPrestacaoServico) {

@@ -8,7 +8,7 @@ import entidades.Servico;
 
 public class TesteVerificarContratoNoHistorico {
 	public static void main(String[] args) {
-		/*Teste método 'verificarExistenciaDeUmContrato()' da classe Historico*/
+		/*Teste método 'verificarExistenciaDeUmContrato(codigoPrestacaoServico)' da classe Historico*/
 		Servico servicoUm = new Servico("Limpeza da fachada", 45, 5, 6);
 		Servico servicoDois = new Servico("Limpeza condominio", 50, 7, 6.5);
 		Servico servicoTres = new Servico("Limpeza piscina", 70, 3, 3);
@@ -30,11 +30,11 @@ public class TesteVerificarContratoNoHistorico {
 		Contrato contratoQuatro = new Contrato(servicoQuatro, clienteQuatro, funcionarioQuatro);
 		
 		Historico historico = new Historico(contratoUm);
-		historico.setContrato(contratoDois);
-		historico.setContrato(contratoTres);
-		historico.setContrato(contratoQuatro);
+		historico.adicionarContrato(contratoDois);
+		historico.adicionarContrato(contratoTres);
+		historico.adicionarContrato(contratoQuatro);
 		
-		/*Adicionando o codigo de prestação de servico de cada objeto contrato em variaveis: */
+		/*Adicionando o codigo de prestação de servico de cada objeto Contrato em variaveis: */
 		String codigoContratoUm = contratoUm.getCodigoPrestacaoServico();
 		String codigoContratoDois = contratoDois.getCodigoPrestacaoServico();
 		String codigoContratoTres = contratoTres.getCodigoPrestacaoServico();

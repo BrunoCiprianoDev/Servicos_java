@@ -47,8 +47,8 @@ public class Horista extends Funcionario {
 				super.getSobrenome(), 
 				super.getEmail(), 
 				super.getSexo(),
-				this.salarioHora,
-				this.totalHorasTrabalhadas);	
+				this.getSalarioHora(),
+				this.getTotalHorasTrabalhadas());	
 		return horista;
 	}
 	
