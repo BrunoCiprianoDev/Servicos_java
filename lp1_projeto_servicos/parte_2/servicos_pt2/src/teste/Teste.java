@@ -32,8 +32,7 @@ public class Teste {
 		Contrato contratoOito = new Contrato(servicoTres, clienteQuatro, funcionarioTres);
 		Contrato contratoNove = new Contrato(servicoQuatro, clienteDois, funcionarioQuatro);
 		Contrato contratoDez = new Contrato(servicoCinco, clienteUm, funcionarioUm);
-		Contrato contratoOnze = new Contrato(new Servico("Limpeza telhado", 80, 3, 2), new Cliente("Ctrêspeó", "Random", "rnadom991.com", "masculino"), funcionarioUm);
-	
+		
 		Historico historico = new Historico(contratoUm, 5);
 		historico.setContrato(contratoDois);
 		historico.setContrato(contratoTres);
@@ -44,7 +43,6 @@ public class Teste {
 		historico.setContrato(contratoOito);
 		historico.setContrato(contratoNove);
 		historico.setContrato(contratoDez);
-		historico.setContrato(contratoOnze);
 		
 		System.out.println(historico.toString());
 		//System.out.println(historico.informacoesDeUmDeterminadoContrato("2022-2"));
