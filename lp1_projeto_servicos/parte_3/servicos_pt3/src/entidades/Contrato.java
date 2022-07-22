@@ -42,7 +42,7 @@ public class Contrato {
 	}
 	
 	public Servico getServico() {
-		return servico;
+		return new Servico(this.servico);
 	}
 
 	public void setServico(Servico servico) {
@@ -50,7 +50,7 @@ public class Contrato {
 	}
 
 	public Cliente getCliente() {
-		return cliente;
+		return new Cliente(this.cliente);
 	}
 
 	public void setCliente(Cliente cliente) {
@@ -58,7 +58,7 @@ public class Contrato {
 	}
 
 	public Funcionario getFuncionario() {
-		return funcionario;
+		return new Funcionario(this.funcionario);
 	}
 
 	public void setFuncionario(Funcionario funcionario) {
@@ -67,7 +67,7 @@ public class Contrato {
 
 	@Override
 	public String toString() {
-		return "\n Código de prestação serviço: "+this.codigoPrestacaoServico+
+		return  "\n Código de prestação serviço: "+this.codigoPrestacaoServico+
 				"\n Mês de inicio do contrato: "+this.mesInicioContrato+
 				"\n Ano de inicio do contrato: "+this.anoInicioContrato+
 				"\n"+cliente.toString()+

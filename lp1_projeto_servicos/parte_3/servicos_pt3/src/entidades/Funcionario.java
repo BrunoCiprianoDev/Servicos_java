@@ -62,7 +62,7 @@ public class Funcionario {
 
 	@Override
 	public String toString() {
-		return "\n Código do funcionario: "+this.codigoFuncionario+
+		return  "\n Código do funcionario: "+this.codigoFuncionario+
 				"\n Nome do funcionario: "+this.nome+" "+this.sobrenome+
 				"\n E-mail: "+this.email+
 				"\n Sexo: "+this.sexo;

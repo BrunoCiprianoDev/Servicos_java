@@ -49,5 +49,6 @@ public class Teste {
 		historico.adicionarContrato(contratoDez);
 		
 		System.out.println(historico.toString());
+		
 	}
 }

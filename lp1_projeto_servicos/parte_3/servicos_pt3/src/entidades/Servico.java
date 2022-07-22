@@ -69,7 +69,7 @@ public class Servico {
 
 	@Override
 	public String toString() {
-		return "\n Código do serviço: "+this.codigoServico+
+		return  "\n Código do serviço: "+this.codigoServico+
 				"\n Descrição serviço: "+this.descricao+
 				"\n Valor cobrado pela hora: R$"+this.valorHora+
 				"\n Total de horas previstas: "+this.horasPrevistas+
