@@ -14,5 +14,7 @@ public class TesteCalculoSalarioFuncionario {
 		System.out.println(funcionarioUm.calcularSalario());
 		System.out.println(funcionarioDois.calcularSalario());
 		System.out.println(funcionarioTres.calcularSalario());
+		
+		
 	}
 }

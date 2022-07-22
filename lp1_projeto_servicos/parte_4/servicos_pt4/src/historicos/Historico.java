@@ -14,6 +14,7 @@ public class Historico {
 	}
 	
 	public double calcularFaturamentoTotalPrevisto() {
+		if(this.listaDeContratos.isEmpty()) {return 0;}
 		double totalOrcamentos = 0;
 		for(Contrato contrato: this.listaDeContratos) {
 			totalOrcamentos += contrato.getServico().calcularValorOrcamento();
@@ -22,6 +23,7 @@ public class Historico {
 	}
 	
 	public double calcularTotalEfetivamentePago() {
+		if(this.listaDeContratos.isEmpty()) {return 0;}
 		double totalEfetivamentePago = 0;
 		for(Contrato contrato : this.listaDeContratos) {
 			totalEfetivamentePago += contrato.getServico().calcularValorEfetivamentePago();
@@ -38,6 +40,7 @@ public class Historico {
 	}
 	
 	public boolean removerContrato(String codigoPrestacaoServico) {
+		if(this.listaDeContratos.isEmpty()) {return false;}
 		for(Contrato contrato : this.listaDeContratos) {
 			if(codigoPrestacaoServico.equals(contrato.getCodigoPrestacaoServico())) {
 				this.listaDeContratos.remove(contrato);
@@ -48,6 +51,7 @@ public class Historico {
 	}
 	
 	public boolean verificarExistenciaDeUmContrato(String codigoPrestacaoServico) {
+		if(this.listaDeContratos.isEmpty()) {return false;}
 		for(Contrato contrato : this.listaDeContratos) {
 			if(codigoPrestacaoServico.equals(contrato.getCodigoPrestacaoServico())) {
 				return true;
@@ -57,6 +61,7 @@ public class Historico {
 	}
 	
 	public String informacoesDeUmDeterminadoContrato(String codigoPrestacaoServico) {
+		if(this.listaDeContratos.isEmpty()) {return "Não há contratos no histórico.";}
 		for(Contrato contrato : this.listaDeContratos) {
 			if(codigoPrestacaoServico.equals(contrato.getCodigoPrestacaoServico())) {
 				return contrato.toString();
@@ -67,6 +72,7 @@ public class Historico {
 	
 	@Override
 	public String toString() {
+		if(this.listaDeContratos.isEmpty()) {return "Não há contratos no histórico.";}
 		String texto = "\n";
 		double totaOrcamento = 0;
 		double totalEfetivamentePago = 0;
