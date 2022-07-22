@@ -8,7 +8,7 @@ import entidades.Servico;
 
 public class TesteAdicionarContratoNoHistorico {
 	public static void main(String[] args) {
-		/*Teste método 'adicionarContrato(codigoPrestacaoServico)' da classe Historico*/
+		/*Teste método 'adicionarContrato(codigoPrestacaoServico)' da classe Historico: */
 		Servico servicoUm = new Servico("Limpeza da fachada", 45, 5, 6);
 		Servico servicoDois = new Servico("Limpeza condominio", 50, 7, 6.5);
 		Servico servicoTres = new Servico("Limpeza piscina", 70, 3, 3);
