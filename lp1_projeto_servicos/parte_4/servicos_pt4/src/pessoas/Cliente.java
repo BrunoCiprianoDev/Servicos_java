@@ -28,8 +28,8 @@ public class Cliente extends Pessoa {
 	@Override
 	public String tratarNome() {
 		return (this.getSexo()==true) ? 
-				"Senhor "+this.getSobrenome():
-				"Senhora "+this.getSobrenome();
+				"Prezado Senhor "+this.getSobrenome():
+				"Prezada Senhora "+this.getSobrenome();
 	}
 
 	@Override

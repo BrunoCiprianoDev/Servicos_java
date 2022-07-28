@@ -1,25 +1,24 @@
 package pessoas;
 
+import services.Servico;
+
 public class Comissionado extends Funcionario {
-	private double taxaDeComissao;
-	private double totalEmServicos;
 	
-	public Comissionado(String nome, String sobrenome, String email, boolean sexo, double taxaDeComissao, double totalEmServicos) {
+	private double taxaDeComissao;
+	
+	public Comissionado(String nome, String sobrenome, String email, boolean sexo, double taxaDeComissao) {
 		super(nome, sobrenome, email, sexo);
 		this.taxaDeComissao = taxaDeComissao;
-		this.totalEmServicos = totalEmServicos;
 	}
 	
-	public Comissionado(String codigoFuncionario, String nome, String sobrenome, String email, boolean sexo, double taxaDeComissao, double totalEmServicos) {
+	public Comissionado(String codigoFuncionario, String nome, String sobrenome, String email, boolean sexo, double taxaDeComissao) {
 		super(codigoFuncionario, nome, sobrenome, email, sexo);
 		this.taxaDeComissao = taxaDeComissao;
-		this.totalEmServicos = totalEmServicos;
 	}
 
 	public Comissionado(Comissionado comissionado) {
 		super(comissionado);
 		this.taxaDeComissao = comissionado.getTaxaDeComissao();
-		this.totalEmServicos = comissionado.getTotalEmServicos();
 	}
 
 	public double getTaxaDeComissao() {
@@ -29,18 +28,10 @@ public class Comissionado extends Funcionario {
 	public void setTaxaDeComissao(double taxaDeComissao) {
 		this.taxaDeComissao = taxaDeComissao;
 	}
-	
-	public double getTotalEmServicos() {
-		return this.totalEmServicos;
-	}
-	
-	public void setTotalEmServicos(double totalEmServicos) {
-		this.totalEmServicos = totalEmServicos;
-	}
-	
+		
 	@Override
-	public double calcularSalario() {
-		return this.taxaDeComissao * this.totalEmServicos;
+	public double calcularSalario(Servico servico) {
+		return this.taxaDeComissao * servico.calcularValorEfetivamentePago();
 	}
 
 	@Override
@@ -51,8 +42,7 @@ public class Comissionado extends Funcionario {
 				super.getSobrenome(), 
 				super.getEmail(), 
 				super.getSexo(),
-				this.getTaxaDeComissao(),
-				this.getTotalEmServicos());		
+				this.getTaxaDeComissao());	
 		return comissionado;
 	}
 	

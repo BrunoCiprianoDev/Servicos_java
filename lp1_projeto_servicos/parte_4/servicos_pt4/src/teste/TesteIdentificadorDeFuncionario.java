@@ -16,8 +16,8 @@ public class TesteIdentificadorDeFuncionario {
 		Servico servicoTres = new Servico("Limpeza piscina", 70, 3, 3);
 	
 		Assalariado funcionarioUm = new Assalariado("Fulano", "de Tal", "ciclano911@empresa.com.br", true, 1100);
-		Comissionado funcionarioDois = new Comissionado("Érbio", "Periodico", "er981@empresa.com.br", true, 0.05, 3000);
-		Horista funcionarioTres = new Horista("TypewriterWoman", "Mouse", "benzenoo981@empresa.com.br", true, 15, 80);
+		Comissionado funcionarioDois = new Comissionado("Érbio", "Periodico", "er981@empresa.com.br", true, 0.05);
+		Horista funcionarioTres = new Horista("TypewriterWoman", "Mouse", "benzenoo981@empresa.com.br", true, 15);
 		
 		Cliente clienteUm = new Cliente("José", "da Sila", "dasilva981@ig.com.br", true);
 		Cliente clienteDois = new Cliente("Maria", "da Silva", "masilva980@ig.com.br", false);

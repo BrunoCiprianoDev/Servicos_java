@@ -1,4 +1,5 @@
 package pessoas;
+import services.Servico;
 
 public class Assalariado extends Funcionario {
 	
@@ -28,7 +29,7 @@ public class Assalariado extends Funcionario {
 	}
 
 	@Override
-	public double calcularSalario() {
+	public double calcularSalario(Servico servico) {
 		return this.salario;
 	}
 

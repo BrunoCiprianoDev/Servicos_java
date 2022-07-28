@@ -1,4 +1,5 @@
 package pessoas;
+import services.Servico;
 
 public abstract class Funcionario extends Pessoa {
 	private static int parametroCodigoFuncionario = 0;
@@ -23,7 +24,7 @@ public abstract class Funcionario extends Pessoa {
 		return this.codigoFuncionario;
 	}
 		
-	public abstract double calcularSalario();
+	public abstract double calcularSalario(Servico servico);
 	
 	public abstract Funcionario getFuncionario();
 	
