@@ -1,9 +1,9 @@
 package pessoas;
 
-import interfaces.CalculadoraDeSalario;
+import interfaces.SalarioVariavel;
 import services.Servico;
 
-public class Horista extends Funcionario implements CalculadoraDeSalario {
+public class Horista extends Funcionario implements SalarioVariavel {
 	
 	private double salarioHora;
 

@@ -1,9 +1,9 @@
 package pessoas;
 
-import interfaces.CalculadoraDeSalario;
+import interfaces.SalarioVariavel;
 import services.Servico;
 
-public class Comissionado extends Funcionario implements CalculadoraDeSalario{
+public class Comissionado extends Funcionario implements SalarioVariavel{
 	
 	private double taxaDeComissao;
 	
