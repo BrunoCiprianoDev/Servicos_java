@@ -1,6 +1,8 @@
 package historicos;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 import contratos.*;
 
@@ -75,6 +77,16 @@ public class Historico {
 		return "Contrato não econtrado no histórico!";
 	}
 	
+	public ArrayList<Contrato> listarContratosDeServico(Comparator<Contrato> criterioComparacao) {		
+		ArrayList<Contrato> copiaListaDeContratos = new ArrayList<>(this.listaDeContratos);
+		if(criterioComparacao == null) {
+			copiaListaDeContratos.sort(null);
+		}else {
+			Collections.sort(copiaListaDeContratos, criterioComparacao); 
+		}
+		return copiaListaDeContratos;
+	}
+	
 	@Override
 	public String toString() {
 		if(this.listaDeContratos.isEmpty()) {return "Não há contratos no histórico.";}
@@ -82,9 +94,9 @@ public class Historico {
 		double totaOrcamento = 0;
 		double totalEfetivamentePago = 0;
 		for(Contrato contrato : this.listaDeContratos) {
-			texto = texto.concat(contrato.toString()+"\n-----------------------------------------------------------\n");
-			totaOrcamento += contrato.getServico().calcularValorOrcamento();
-			totalEfetivamentePago += contrato.getServico().calcularValorEfetivamentePago();
+				texto = texto.concat(contrato.toString()+"\n-----------------------------------------------------------\n");
+				totaOrcamento += contrato.getServico().calcularValorOrcamento();
+				totalEfetivamentePago += contrato.getServico().calcularValorEfetivamentePago();
 		}
 		return texto.concat(" Total previsto nos orçamentos: $"+totaOrcamento+"\n Total efetivamente recebido: $"+totalEfetivamentePago);
 	}

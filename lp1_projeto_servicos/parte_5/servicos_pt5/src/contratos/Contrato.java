@@ -4,7 +4,7 @@ import java.time.LocalDate;
 import pessoas.*;
 import services.*;
 
-public class Contrato {
+public class Contrato implements Comparable<Contrato>{
 	
 	private static LocalDate parametroData = LocalDate.now();
 	private static int parametroCodigo = 0;
@@ -15,13 +15,13 @@ public class Contrato {
 	private Cliente cliente;
 	private Funcionario funcionario;
 	
-	public Contrato(Servico servico, Cliente cliente, Funcionario funcionario) {
+	public Contrato(Servico servico, Cliente cliente, Funcionario funcionario){
 		this.gerarCodigoPrestacaoServico();
 		this.mesInicioContrato = Contrato.parametroData.getMonthValue();
 		this.anoInicioContrato = Contrato.parametroData.getYear(); 
-		this.servico = servico;
-		this.cliente = cliente;
-		this.funcionario = funcionario;
+		setServico(servico);
+		setCliente(cliente);
+		setFuncionario(funcionario);
 	}
 	
 	public Contrato(Contrato contrato) {
@@ -78,6 +78,11 @@ public class Contrato {
 	}
 
 	@Override
+	public int compareTo(Contrato contrato) {
+		return this.cliente.getNome().compareTo(contrato.cliente.getNome());
+	}
+		
+	@Override
 	public String toString() {
 		return  "\n Código de prestação serviço: "+this.codigoPrestacaoServico+
 				"\n Mês de inicio do contrato: "+this.mesInicioContrato+
@@ -86,5 +91,5 @@ public class Contrato {
 				"\n"+funcionario.toString()+
 				"\n"+servico.toString();
 	}
-
+	
 }

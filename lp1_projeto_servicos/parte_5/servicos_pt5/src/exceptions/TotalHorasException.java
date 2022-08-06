@@ -1,6 +1,6 @@
 package exceptions;
 
-public class TotalHorasException extends RuntimeException{
+public class TotalHorasException extends Exception{
 	private static final long serialVersionUID = 1L;
 
 	public TotalHorasException() {

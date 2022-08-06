@@ -10,7 +10,7 @@ public class Servico {
 	private double horasPrevistas;
 	private double horasTrabalhadas;
 	
-	public Servico(String descricao, double valorHora, double horasPrevistas, double horasTrabalhadas){
+	public Servico(String descricao, double valorHora, double horasPrevistas, double horasTrabalhadas) throws TotalHorasException{
 		this.codigoServico = "S"+(++Servico.parametroCodigo);
 		this.descricao = descricao;
 		this.valorHora = valorHora;
@@ -61,26 +61,15 @@ public class Servico {
 	public void setHorasPrevistas(double horasPrevistas) throws TotalHorasException{
 		if(horasPrevistas > 2400) {throw new TotalHorasException("Esse valor não pode ser maior que 2400 horas");}
 		this.horasPrevistas = horasPrevistas;
-		/**
-		 * @Param horasPrevistas não pode ser maior que 2400
-		 * @throws TotalHorasException caso horasPrevistas > 2400
-		 * @return
-		 */
-		
+	}
+	
+	public void setHorasTrabalhadas(double horasTrabalhadas)throws TotalHorasException {
+		if(horasTrabalhadas > 2400) {throw new TotalHorasException("Esse valor não pode ser maior que 2400 horas");}
+		this.horasTrabalhadas = horasTrabalhadas;
 	}
 
 	public double getHorasTrabalhadas() {
 		return horasTrabalhadas;
-	}
-
-	public void setHorasTrabalhadas(double horasTrabalhadas)throws TotalHorasException {
-		if(horasTrabalhadas > 2400) {throw new TotalHorasException("Esse valor não pode ser maior que 2400 horas");}
-		this.horasTrabalhadas = horasTrabalhadas;
-		/**
-		 * @Param horasTrabalhadas não pode ser maior que 2400
-		 * @throws TotalHorasException caso horasTrabalhadas > 2400
-		 * @return
-		 */
 	}
 
 	@Override
@@ -93,4 +82,6 @@ public class Servico {
 				"\n Valor do orçamento: $"+this.calcularValorOrcamento()+
 				"\n Valor efetivamente pago: $"+this.calcularValorEfetivamentePago();
 	}
+
+	
 }
