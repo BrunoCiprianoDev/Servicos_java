@@ -10,8 +10,13 @@ import pessoas.Comissionado;
 import pessoas.Horista;
 import services.Servico;
 
-public class TesteListarValorServicosCliente {
-	public static void main(String...args) {
+public class TesteParteSeisItemDois {
+	public static void main(String...args) {	
+		/*O objetivo desse teste é verificar o funcionamento dos seguintes métodos da classe "RankingDeClientes:"
+		 * 1)listarClientesTotaisServicosContratados()
+		 * 2)consultarCategoriaCliente(clienteUm)
+		 * 3)consultarValorTotalServicosCliente(clienteDois)
+		 */
 		Servico servicoUm = novoServico("Limpeza da fachada", 50, 5, 100);
 		Servico servicoDois = novoServico("Limpeza condominio", 50, 5, 100);
 		Servico servicoTres = novoServico("Limpeza piscina", 50, 5, 100);
@@ -39,7 +44,6 @@ public class TesteListarValorServicosCliente {
 		Contrato contratoDez = new Contrato(servicoDois, clienteTres, funcionarioTres);
 		Contrato contratoOnze = new Contrato(servicoDois, clienteTres, funcionarioUm);
 		Contrato contratoDoze = new Contrato(servicoDois, clienteTres, funcionarioDois);
-
 		
 		Historico historico = new Historico(contratoUm);
 		historico.adicionarContrato(contratoDois);
@@ -54,16 +58,22 @@ public class TesteListarValorServicosCliente {
 		historico.adicionarContrato(contratoDoze);
 		
 		RankingDeClientes rankingDeClientes = new RankingDeClientes(historico);
+		
+		//Teste item 2a) Listar todos os clientes e seus totais de serviços contratados.
+		System.out.println("a) Listagem cliente valor:");
 		System.out.println(rankingDeClientes.listarClientesTotaisServicosContratados());
+		
+		//Teste item 2b) Consultar a valor total dos serviços contratados por um cliente.
+		System.out.println("b) Consultas categorias clientes:");
 		System.out.println(clienteUm.getNome()+" "+rankingDeClientes.consultarCategoriaCliente(clienteUm));
 		System.out.println(clienteDois.getNome()+" "+rankingDeClientes.consultarCategoriaCliente(clienteDois));
 		System.out.println(clienteTres.getNome()+" "+rankingDeClientes.consultarCategoriaCliente(clienteTres)+"\n");
-		
-		
+			
+		//Teste item 2c) Consultar a categoria de um cliente.
+		System.out.println("c) Consultas valores totais clientes:");
 		System.out.println(clienteUm.getNome()+" R$"+rankingDeClientes.consultarValorTotalServicosCliente(clienteUm));
 		System.out.println(clienteDois.getNome()+" R$"+rankingDeClientes.consultarValorTotalServicosCliente(clienteDois));
-		System.out.println(clienteTres.getNome()+" R$"+rankingDeClientes.consultarValorTotalServicosCliente(clienteTres));
-		
+		System.out.println(clienteTres.getNome()+" R$"+rankingDeClientes.consultarValorTotalServicosCliente(clienteTres));	
 	}
 	public static Servico novoServico(String descricao, double valorHora, double horasPrevistas, double horasTrabalhadas) {
 		try{

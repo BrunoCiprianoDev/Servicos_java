@@ -28,6 +28,7 @@ public class RankingDeClientes {
 
 	public void atualizarMapClienteTotalServicos(Historico historico) {
 		ArrayList<Contrato> listaDeContratos = historico.getListaDeContratos();
+		this.mapClienteCategoria.clear();
 		for(Contrato contrato : listaDeContratos) {
 			 Cliente cliente = contrato.getCliente();
 			 if(this.mapClienteCategoria.containsKey(cliente)) {
