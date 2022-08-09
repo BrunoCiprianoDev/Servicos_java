@@ -21,6 +21,22 @@ public class Cliente extends Pessoa implements TratadorDeNomes {
 	}
 
 	@Override
+	public boolean equals(Object obj) {
+		if(obj == null) return false;
+		if(this == obj) return true;
+		if(this.getClass() != obj.getClass()) {
+			return false;
+		}
+		Cliente cliente = (Cliente) obj;	
+		return codigoCliente != null && codigoCliente.equals(cliente.codigoCliente);
+	}
+	
+	@Override
+	public int hashCode() {
+		return codigoCliente == null ? 0 : this.codigoCliente.hashCode();
+	}
+
+	@Override
 	public String toString() {
 		return "\n Código do cliente: "+this.getCodigoCliente()+
 				"\n Nome do cliente: "+this.getNome()+" "+this.getSobrenome()+
