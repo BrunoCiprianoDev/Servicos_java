@@ -57,7 +57,12 @@ public class TesteListarValorServicosCliente {
 		System.out.println(rankingDeClientes.listarClientesTotaisServicosContratados());
 		System.out.println(clienteUm.getNome()+" "+rankingDeClientes.consultarCategoriaCliente(clienteUm));
 		System.out.println(clienteDois.getNome()+" "+rankingDeClientes.consultarCategoriaCliente(clienteDois));
-		System.out.println(clienteTres.getNome()+" "+rankingDeClientes.consultarCategoriaCliente(clienteTres));
+		System.out.println(clienteTres.getNome()+" "+rankingDeClientes.consultarCategoriaCliente(clienteTres)+"\n");
+		
+		
+		System.out.println(clienteUm.getNome()+" R$"+rankingDeClientes.consultarValorTotalServicosCliente(clienteUm));
+		System.out.println(clienteDois.getNome()+" R$"+rankingDeClientes.consultarValorTotalServicosCliente(clienteDois));
+		System.out.println(clienteTres.getNome()+" R$"+rankingDeClientes.consultarValorTotalServicosCliente(clienteTres));
 		
 	}
 	public static Servico novoServico(String descricao, double valorHora, double horasPrevistas, double horasTrabalhadas) {

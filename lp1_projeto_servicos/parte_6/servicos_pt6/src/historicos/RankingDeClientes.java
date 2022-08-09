@@ -5,64 +5,61 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 
+import categorias.CategoriaCliente;
 import contratos.Contrato;
+
 import pessoas.*;
 public class RankingDeClientes {
 	
-	private Map<Cliente, Double> clienteTotalServicos;
+	private Map<Cliente, CategoriaCliente> mapClienteCategoria;
 	
 	public RankingDeClientes(Historico historico) {
-		this.setClienteTotalServicos(calcularTotalServicosDeClientes(historico));
+		this.mapClienteCategoria = new HashMap<Cliente, CategoriaCliente>();
+		atualizarMapClienteTotalServicos(historico);
 	}
 	
-	public Map<Cliente, Double> getClienteTotalServicos() {
-		return clienteTotalServicos;
+	public Map<Cliente, CategoriaCliente> getMapClienteCategoria() {
+		return mapClienteCategoria;
 	}
 
-	private void setClienteTotalServicos(Map<Cliente, Double> clienteTotalServicos) {
-		this.clienteTotalServicos = clienteTotalServicos;
+	public void setMapClienteCategoria(Map<Cliente, CategoriaCliente> mapClienteCategoria) {
+		this.mapClienteCategoria = mapClienteCategoria;
 	}
-	
-	public void atualizarEstrutura(Historico historico) {
-		this.setClienteTotalServicos(calcularTotalServicosDeClientes(historico));
-	}
-	
-	public Map<Cliente, Double> calcularTotalServicosDeClientes(Historico historico) {
+
+	public void atualizarMapClienteTotalServicos(Historico historico) {
 		ArrayList<Contrato> listaDeContratos = historico.getListaDeContratos();
-		Map<Cliente, Double> mapTotalCliente = new HashMap<Cliente, Double>();
 		for(Contrato contrato : listaDeContratos) {
 			 Cliente cliente = contrato.getCliente();
-			 if(mapTotalCliente.containsKey(cliente)) {
-				 double valorAtualChave = mapTotalCliente.get(cliente);
-				 double novoValorChave = valorAtualChave + contrato.getServico().calcularValorEfetivamentePago();
-				 mapTotalCliente.replace(cliente, valorAtualChave , novoValorChave);
+			 if(this.mapClienteCategoria.containsKey(cliente)) {
+				 CategoriaCliente categoriaCliente = this.mapClienteCategoria.get(cliente);
+				 categoriaCliente.adicionarValorServico(contrato.getServico().calcularValorEfetivamentePago());
+				 this.mapClienteCategoria.put(cliente, categoriaCliente);
 			 }else {
-				 mapTotalCliente.put(cliente, contrato.getServico().calcularValorEfetivamentePago());
+				 this.mapClienteCategoria.put(cliente, new CategoriaCliente(contrato.getServico().calcularValorEfetivamentePago()));
 			 }
 		 }
-		return mapTotalCliente;	
-	}
+	}	
 	
 	public String listarClientesTotaisServicosContratados() {
 		String listagem = "";
-		for(Entry<Cliente, Double> entry : this.clienteTotalServicos.entrySet()) {
-			listagem = listagem.concat((entry.getKey().getNome()+" R$"+entry.getValue()+"\n"));
+		for(Entry<Cliente, CategoriaCliente> entry : this.mapClienteCategoria.entrySet()) {
+			listagem = listagem.concat((entry.getKey().getNome()+" R$"+entry.getValue().getTotalServicos()+"\n"));
 		}
 		return listagem;
 	}
 	
-	public Double consultarValorTotalDosServicosCliente(Cliente cliente) {
-		return this.clienteTotalServicos.get(cliente);
+	public char consultarCategoriaCliente(Cliente cliente) {
+		if(this.mapClienteCategoria.containsKey(cliente)) {
+			return this.mapClienteCategoria.get(cliente).getCategoria();
+		}
+		return '0';		
 	}
 	
-	public String consultarCategoriaCliente(Cliente cliente) {
-		if(this.clienteTotalServicos.get(cliente) > 30000) {
-			return "Categoria A";
-		}else if(this.clienteTotalServicos.get(cliente) > 10000) {
-			return "Categoria B";
+	public double consultarValorTotalServicosCliente(Cliente cliente) {
+		if(this.mapClienteCategoria.containsKey(cliente)) {
+			return this.mapClienteCategoria.get(cliente).getTotalServicos();
 		}
-		return "Categoria C";
+		return 0;	
 	}
-
 
 }
