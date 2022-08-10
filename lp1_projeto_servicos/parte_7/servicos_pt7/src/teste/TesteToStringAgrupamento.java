@@ -8,14 +8,12 @@ import pessoas.Comissionado;
 import pessoas.Horista;
 import services.Servico;
 
-public class TesteItemDoisParteCinco {
+public class TesteToStringAgrupamento {
 	public static void main(String...args) {
 		/**
 		 * @author Bruno Cipriano
-		 * O objetivo desse Teste é verificar a implementação da interface "Comparable"
-		 * para ordenar os contratos de servicos em ordem alfabetica crescente com base 
-		 * nos nomes dos clientes.
-		 * 
+		 * O objetivo desse Teste é verificar o funcionamento do método toString()
+		 * da classe "Agrupamento"
 		 */
 		
 		//Instanciação dos servicos de cada contrato
@@ -50,7 +48,7 @@ public class TesteItemDoisParteCinco {
 		Contrato contratoSeis = new Contrato(servicoSeis, clienteSeis, funcionarioTres);
 		Contrato contratoSete = new Contrato(servicoSete, clienteSete, funcionarioUm);
 		
-		//Instanciação do historico que contém uma lista com cada contrato:
+		//Instanciação do Agrupamento que contém uma lista com todos contratos
 		Agrupamento<Contrato> agrupamentoDeContratos = new Agrupamento<Contrato>();
 		agrupamentoDeContratos.adicionar(contratoUm);
 		agrupamentoDeContratos.adicionar(contratoDois);

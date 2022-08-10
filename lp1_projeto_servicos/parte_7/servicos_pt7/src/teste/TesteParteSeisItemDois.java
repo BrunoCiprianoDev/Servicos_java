@@ -12,11 +12,8 @@ import services.Servico;
 
 public class TesteParteSeisItemDois {
 	public static void main(String...args) {	
-		/*O objetivo desse teste é verificar o funcionamento dos seguintes métodos da classe "RankingDeClientes:"
-		 * 1)listarClientesTotaisServicosContratados()
-		 * 2)consultarCategoriaCliente(clienteUm)
-		 * 3)consultarValorTotalServicosCliente(clienteDois)
-		 */
+
+		
 		Servico servicoUm = novoServico("Limpeza da fachada", 50, 5, 100);
 		Servico servicoDois = novoServico("Limpeza condominio", 50, 5, 100);
 		Servico servicoTres = novoServico("Limpeza piscina", 50, 5, 100);
@@ -60,17 +57,14 @@ public class TesteParteSeisItemDois {
 		
 		RankingDeClientes rankingDeClientes = new RankingDeClientes(agrupamentoDeContratos);
 		
-		//Teste item 2a) Listar todos os clientes e seus totais de serviços contratados.
 		System.out.println("a) Listagem cliente valor:");
 		System.out.println(rankingDeClientes.listarClientesTotaisServicosContratados());
 		
-		//Teste item 2b) Consultar a valor total dos serviços contratados por um cliente.
 		System.out.println("b) Consultas categorias clientes:");
 		System.out.println(clienteUm.getNome()+" "+rankingDeClientes.consultarCategoriaCliente(clienteUm));
 		System.out.println(clienteDois.getNome()+" "+rankingDeClientes.consultarCategoriaCliente(clienteDois));
 		System.out.println(clienteTres.getNome()+" "+rankingDeClientes.consultarCategoriaCliente(clienteTres)+"\n");
 			
-		//Teste item 2c) Consultar a categoria de um cliente.
 		System.out.println("c) Consultas valores totais clientes:");
 		System.out.println(clienteUm.getNome()+" R$"+rankingDeClientes.consultarValorTotalServicosCliente(clienteUm));
 		System.out.println(clienteDois.getNome()+" R$"+rankingDeClientes.consultarValorTotalServicosCliente(clienteDois));

@@ -13,7 +13,8 @@ import services.Servico;
 public class TesteParteSeisItemTres {
 	public static void main(String...args) {	
 		/*O objetivo desse teste é verificar o funcionamento do método "atualizarMapClienteTotalServicos()" 
-		 * da classe "RankingDeClientes" que atualiza a estrutura "hashMap" da classe RankingDeClientes.
+		 * da classe "RankingDeClientes" que atualiza a estrutura "hashMap" da classe RankingDeClientes
+		 * após a implementação da classe Agrupamento<>;
 		 */
 		Servico servicoUm = novoServico("Limpeza da fachada", 50, 5, 100);
 		Servico servicoDois = novoServico("Limpeza condominio", 50, 5, 100);
@@ -63,7 +64,7 @@ public class TesteParteSeisItemTres {
 		Contrato contratoTreze = new Contrato(servicoDois, clienteTres, funcionarioTres);
 		Contrato contratoQuatorze = new Contrato(servicoDois, clienteTres, funcionarioTres);
 		
-		// Modifições no histórico
+		// Modifições no agrupamento
 		agrupamentoDeContratos.adicionar(contratoTreze);
 		agrupamentoDeContratos.adicionar(contratoQuatorze);
 		
