@@ -12,7 +12,7 @@ public class Agrupamento<Elemento> {
 		this.listaElementos.add(elemento);
 	}
 	
-	public boolean remover(Elemento elemento) {
+	public boolean remover(Elemento elemento) {				
 		return this.listaElementos.remove(elemento);
 	}
 	

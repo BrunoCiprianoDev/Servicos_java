@@ -31,7 +31,11 @@ public class Contrato implements Comparable<Contrato>{
 		this.servico = contrato.getServico();
 		this.cliente = contrato.getCliente();
 		this.funcionario = contrato.getFuncionario();
-	}	
+	}
+	
+	public Contrato(String codigoPrestacaoServico) {
+		this.codigoPrestacaoServico = codigoPrestacaoServico;
+	}
 	
 	private void gerarCodigoPrestacaoServico() {
 		if(Contrato.parametroData.getYear() != LocalDate.now().getYear()) {

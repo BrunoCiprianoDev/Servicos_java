@@ -20,6 +20,10 @@ public abstract class Pessoa {
 			this.sexo = pessoa.getSexo();
 		}
 		
+		public Pessoa() {
+			
+		}
+		
 		public String getNome() {
 			return nome;
 		}

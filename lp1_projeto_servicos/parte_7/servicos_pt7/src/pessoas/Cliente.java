@@ -2,7 +2,7 @@ package pessoas;
 
 import interfaces.TratadorDeNomes;
 
-public class Cliente extends Pessoa implements TratadorDeNomes {
+public class Cliente extends Pessoa implements TratadorDeNomes, Comparable<Cliente> {
 	private static int parametroCodigoCliente = 0;
 	private String codigoCliente;
 	
@@ -10,14 +10,23 @@ public class Cliente extends Pessoa implements TratadorDeNomes {
 		super(nome, sobrenome, email, sexo);
 		this.codigoCliente = this.gerarCodigo();	
 	}
-	
+		
 	public Cliente(Cliente cliente) {
 		super(cliente);
 		this.codigoCliente = cliente.getCodigoCliente();
 	}
 	
+	public Cliente(String codigoCliente) {
+		this.codigoCliente = codigoCliente;	
+	}
+	
 	public String getCodigoCliente() {
 		return this.codigoCliente;
+	}
+	
+	@Override
+	public int compareTo(Cliente cliente) {
+		return this.getNome().compareTo(cliente.getNome());
 	}
 
 	@Override
@@ -28,7 +37,7 @@ public class Cliente extends Pessoa implements TratadorDeNomes {
 			return false;
 		}
 		Cliente cliente = (Cliente) obj;	
-		return codigoCliente != null && codigoCliente.equals(cliente.codigoCliente);
+		return this.codigoCliente != null && this.codigoCliente.equals(cliente.codigoCliente);
 	}
 	
 	@Override

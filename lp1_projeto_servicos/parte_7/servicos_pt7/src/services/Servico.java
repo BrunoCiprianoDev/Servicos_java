@@ -2,7 +2,7 @@ package services;
 
 import exceptions.TotalHorasException;
 
-public class Servico {
+public class Servico implements Comparable<Servico> {
 	private static int parametroCodigo = 0;
 	private String codigoServico;
 	private String descricao;
@@ -24,6 +24,10 @@ public class Servico {
 		this.valorHora = servico.valorHora;
 		this.horasPrevistas = servico.horasPrevistas;
 		this.horasTrabalhadas = servico.horasTrabalhadas;
+	}
+	
+	public Servico(String codigoServico) {
+		this.codigoServico = codigoServico;
 	}
 	
 	public double calcularValorOrcamento() {
@@ -71,6 +75,33 @@ public class Servico {
 	public double getHorasTrabalhadas() {
 		return horasTrabalhadas;
 	}
+	
+	@Override
+	public int compareTo(Servico servico) {
+		if(this.getValorHora() > servico.getValorHora()) {
+			return 1;
+		}else if(this.getValorHora() < servico.getValorHora()) {
+			return -1;
+		}
+		return 0;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if(obj == null) return false;
+		if(this == obj) return true;
+		if(this.getClass() != obj.getClass()) {
+			return false;
+		}
+		Servico servico = (Servico) obj;	
+		return this.codigoServico != null && this.codigoServico.equals(servico.codigoServico);
+	}
+	
+	@Override
+	public int hashCode() {
+		return codigoServico == null ? 0 : this.codigoServico.hashCode();
+	}
+	
 
 	@Override
 	public String toString() {
